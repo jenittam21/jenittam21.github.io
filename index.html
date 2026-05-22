@@ -27,7 +27,6 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;overflow-x:hidden;cursor:default}
 
-/* scrollbar */
 ::-webkit-scrollbar{width: 4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--faint)}
@@ -56,58 +55,19 @@ nav{
 #hero{
   min-height:100vh;
   padding-top:var(--nav);
-
   display:flex;
   justify-content:center;
   align-items:center;
-
   padding-left:64px;
   padding-right:64px;
-
   position:relative;
   overflow:hidden;
 }
 .hero-content{
+  width:100%;
   display:flex;flex-direction:column;justify-content:center;
-  padding:80px 64px 80px 0
+  padding:80px 0;
 }
-.hero-photo-col{
-  height:100%;min-height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  border-left:1px solid var(--line);
-  background:var(--bg2)
-}
-
-
-.hero-photo-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;
- 
-}
-.photo-ring{
-  width:180px;height:180px;border-radius:50%;
-  padding:3px;
-  background:conic-gradient(var(--teal) 0deg, var(--gold) 180deg, var(--teal) 360deg);
-  margin-bottom:24px;position:relative
-}
-.photo-ring-inner{
-  width:100%;height:100%;border-radius:50%;
-  overflow:hidden;background:var(--bg3)
-}
-.photo-ring-inner img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center top;
-  display:block
-}
-.photo-online{
-  position:absolute;bottom:8px;right:8px;
-  width:18px;height:18px;border-radius:50%;
-  background:var(--teal);
-  border:3px solid var(--bg3)
-}
-.photo-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
-.photo-sub{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);font-weight:600}
-.hero-photo-overlay{display:none}
-/* big background letter */
 .hero-bg-letter{
   position:absolute;right:-40px;top:50%;transform:translateY(-50%);
   font-family:var(--serif);font-size:clamp(320px,35vw,520px);
@@ -128,14 +88,7 @@ nav{
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .hero-num{font-family:var(--serif);font-size:11px;color:var(--faint);letter-spacing:0.2em}
 
-.hero-name{
-  font-family:'Bodoni Moda',serif;
-  font-size:clamp(60px,9vw,130px);
-  line-height:1;font-weight:700;
-  letter-spacing:-0.02em;
-  margin-bottom:0;
-  display:flex;align-items:baseline;gap:0.18em;flex-wrap:wrap
-}
+/* ── HERO NAME + PHOTO ROW ── */
 .hero-name-wrap{
   display:flex;
   align-items:flex-end;
@@ -143,98 +96,54 @@ nav{
   gap:40px;
   width:100%;
 }
+.hero-name{
+  font-family:'Bodoni Moda',serif;
+  font-size:clamp(60px,9vw,130px);
+  line-height:1;font-weight:700;
+  letter-spacing:-0.02em;
+  display:flex;align-items:baseline;gap:0.18em;flex-wrap:wrap
+}
+.hero-name .n-jenitta{font-style:normal;font-weight:700;color:var(--text)}
+.hero-name .n-m{font-style:italic;font-weight:400;color:var(--red)}
 
+/* ── PROFILE CARD (desktop) ── */
 .hero-profile{
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-right:40px;
-  margin-top:-20px;
+  flex-shrink:0;
+  margin-bottom:4px;
 }
-
 .photo-ring{
-  width:180px;
-  height:180px;
-  border-radius:50%;
+  width:160px;height:160px;border-radius:50%;
   padding:3px;
   background:conic-gradient(var(--teal) 0deg, var(--gold) 180deg, var(--teal) 360deg);
   position:relative;
 }
-
 .photo-ring-inner{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  overflow:hidden;
-  background:var(--bg3);
+  width:100%;height:100%;border-radius:50%;
+  overflow:hidden;background:var(--bg3);
 }
-
 .photo-ring-inner img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block
 }
-
 .photo-online{
-  position:absolute;
-  bottom:10px;
-  right:10px;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  background:var(--teal);
-  border:3px solid var(--bg);
+  position:absolute;bottom:10px;right:10px;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--teal);border:3px solid var(--bg);
 }
-
 .photo-name{
   margin-top:14px;
-  font-family:'Playfair Display', serif;
-  font-size:18px;
-  font-weight:700;
+  font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text);
+  text-align:center;
 }
-
 .photo-sub{
-  font-size:11px;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--teal);
-}
-.photo-ring{
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  padding:3px;
-  background:conic-gradient(var(--teal) 0deg, var(--gold) 180deg, var(--teal) 360deg);
-  position:relative;
-  flex-shrink:0;
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);
+  text-align:center;
 }
 
-.photo-ring-inner{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  overflow:hidden;
-  background:var(--bg3);
-}
-
-.photo-ring-inner img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.photo-online{
-  position:absolute;
-  bottom:10px;
-  right:10px;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  background:var(--teal);
-  border:3px solid var(--bg);
-}
-.hero-name .n-jenitta{font-style:normal;font-weight:700;color:var(--text)}
-.hero-name .n-m{font-style:italic;font-weight:400;color:var(--teal)}
 .hero-divider{
   height:1px;background:var(--line);
   margin:40px 0;position:relative
@@ -263,9 +172,9 @@ nav{
 }
 .btn-out:hover{border-color:var(--sub);color:var(--text)}
 .hero-stats{
-  display:flex;gap:48px;padding-top:4px
+  display:flex;gap:36px;padding-top:4px
 }
-.hstat-n{font-family:var(--serif);font-size:40px;color:var(--text);font-weight:600;line-height:1}
+.hstat-n{font-family:var(--serif);font-size:36px;color:var(--text);font-weight:600;line-height:1}
 .hstat-l{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--sub);margin-top:4px}
 
 /* ── TICKER ── */
@@ -439,14 +348,64 @@ footer{
 .reveal.on{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
-/* ── RESPONSIVE ── */
+
+/* ════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+════════════════════════════════════════ */
 @media(max-width:1024px){
   nav{padding:0 32px}
   .nav-links{display:none}
+
   section{padding:80px 32px}
-  #hero{grid-template-columns:1fr;padding-left:32px;padding-right:32px}
-  .hero-content{padding:80px 0 60px}
-  .hero-photo-col{display:none}
+
+  /* hero */
+  #hero{padding-left:32px;padding-right:32px;align-items:flex-start;}
+  .hero-content{padding:60px 0 48px}
+  .hero-bg-letter{display:none}
+
+  .hero-name-wrap{
+    flex-direction:column;
+    align-items:center;
+    gap:28px;
+  }
+  .hero-name{
+    font-size:clamp(52px,14vw,90px);
+    justify-content:center;
+    text-align:center;
+    width:100%;
+  }
+  .hero-profile{
+    order:-1; /* photo appears ABOVE the name */
+    margin:0;
+  }
+
+  .hero-top{
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+    margin-bottom:32px;
+  }
+  .hero-badge{text-align:center}
+
+  .hero-divider{margin:28px 0}
+
+  .hero-bottom{
+    grid-template-columns:1fr;
+    gap:24px;
+    text-align:center;
+  }
+  .hero-role{font-size:20px}
+  .hero-desc{max-width:100%;font-size:13px}
+  .hero-actions{
+    align-items:center;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+  .hero-stats{justify-content:center;gap:32px}
+
+  /* rest */
   .about-wrap{grid-template-columns:1fr;gap:48px}
   .skills-wrap{grid-template-columns:repeat(3,1fr)}
   .sk:nth-child(3){border-right:none}
@@ -455,21 +414,56 @@ footer{
   #contact{grid-template-columns:1fr}
   .contact-l,.contact-r{padding:64px 32px}
   .contact-l{border-right:none;border-bottom:1px solid var(--line)}
-  .hero-bottom{grid-template-columns:1fr;gap:24px}
-  .hero-actions{align-items:flex-start;flex-direction:row}
   footer{padding:20px 32px;flex-direction:column;gap:8px;text-align:center}
 }
+
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤640px)
+════════════════════════════════════════ */
 @media(max-width:640px){
+  nav{padding:0 20px}
+
+  /* hero tighter on phones */
+  #hero{padding-left:20px;padding-right:20px;min-height:100svh;}
+  .hero-content{padding:40px 0 40px}
+
+  .hero-name{font-size:clamp(44px,16vw,72px);}
+
+  .photo-ring{width:130px;height:130px}
+
+  .hero-badge{font-size:10px;padding:7px 14px}
+
+  .btn-red,.btn-out{padding:12px 24px;font-size:11px}
+
+  .hstat-n{font-size:28px}
+  .hero-stats{gap:24px}
+
+  /* other sections */
+  section{padding:64px 20px}
+  .sec-head{flex-wrap:wrap;gap:12px;margin-bottom:40px}
+  .sec-title{font-size:clamp(32px,8vw,48px)}
+
   .proj-grid{grid-template-columns:1fr}
-  .proj-card{border-right:none!important}
+  .proj-card{padding:28px;border-right:none!important}
   .proj-card:nth-child(n){border-bottom:1px solid var(--line)}
   .proj-card:last-child{border-bottom:none}
+
   .cert-row{grid-template-columns:1fr}
   .cert-card{border-right:none;border-bottom:1px solid var(--line)}
   .cert-card:last-child{border-bottom:none}
+
   .skills-wrap{grid-template-columns:1fr 1fr}
+  .sk{padding:20px 16px}
   .sk:nth-child(2n){border-right:none}
   .sk:nth-child(n+3){border-top:1px solid var(--line)}
+
+  .exp-left{padding-right:0}
+  .exp-role{font-size:22px}
+
+  .contact-l,.contact-r{padding:48px 20px}
+
+  footer{padding:16px 20px;font-size:10px}
 }
 </style>
 </head>
@@ -494,36 +488,35 @@ footer{
 <section id="hero">
   <div class="hero-content">
     <div class="hero-bg-letter">J</div>
+
     <div class="hero-top">
       <div class="hero-badge">
         <span class="badge-dot"></span>
         Available for Opportunities
       </div>
-      <div class="hero-num"></div>
     </div>
+
     <div class="hero-name-wrap">
-
-  <h1 class="hero-name">
-    <span class="n-jenitta">Jenitta</span>
-    <span class="n-m" style="color: #f4a89a;">M</span>
-  </h1>
-
-  <div class="hero-profile">
-    <div class="photo-ring">
-      <div class="photo-ring-inner">
-        <img src="jeni.png" alt="Jenitta">
+      <!-- Photo card — moves above name on mobile via order:-1 -->
+      <div class="hero-profile">
+        <div class="photo-ring">
+          <div class="photo-ring-inner">
+            <img src="jeni.png" alt="Jenitta M">
+          </div>
+          <div class="photo-online"></div>
+        </div>
+        <div class="photo-name">Jenitta M</div>
+        <div class="photo-sub">CSE · Batch of 2026</div>
       </div>
 
-      <div class="photo-online"></div>
+      <h1 class="hero-name">
+        <span class="n-jenitta">Jenitta</span>
+        <span class="n-m">M</span>
+      </h1>
     </div>
 
-    <div class="photo-name">Jenitta M</div>
-    <div class="photo-sub">CSE · Batch of 2026</div>
-  </div>
+    <div class="hero-divider"></div>
 
-</div>
-
-<div class="hero-divider"></div>
     <div class="hero-bottom">
       <div class="hero-role">Frontend Developer<br>&amp; UI/UX Designer</div>
       <p class="hero-desc">Computer Science Engineer with 4 internships across UI/UX, Data Science, Web &amp; Flutter Development. I craft interfaces that are precise, purposeful, and built to last.</p>
@@ -538,10 +531,6 @@ footer{
       </div>
     </div>
   </div>
-  
-    
-      
-  
 </section>
 
 <!-- TICKER -->
@@ -607,66 +596,12 @@ footer{
     <span class="sec-tag">Technologies</span>
   </div>
   <div class="skills-wrap reveal">
-    <div class="sk">
-      <div class="sk-n"></div>
-      <div class="sk-title">Frontend</div>
-      <div class="sk-tags">
-        <span class="sk-tag">HTML5</span>
-        <span class="sk-tag">CSS3</span>
-        <span class="sk-tag">JavaScript</span>
-        <span class="sk-tag">React.js</span>
-      </div>
-    </div>
-    <div class="sk">
-      <div class="sk-n"></div>
-      <div class="sk-title">UI/UX Design</div>
-      <div class="sk-tags">
-        <span class="sk-tag">Figma</span>
-        <span class="sk-tag">Canva</span>
-        <span class="sk-tag">Prototyping</span>
-        <span class="sk-tag">Design Systems</span>
-      </div>
-    </div>
-    <div class="sk">
-      <div class="sk-n"></div>
-      <div class="sk-title">Data Science</div>
-      <div class="sk-tags">
-        <span class="sk-tag">Python</span>
-        <span class="sk-tag">Pandas</span>
-        <span class="sk-tag">Data Viz</span>
-        <span class="sk-tag">ML Models</span>
-      </div>
-    </div>
-    <div class="sk">
-      <div class="sk-n"></div>
-      <div class="sk-title">Mobile Dev</div>
-      <div class="sk-tags">
-        <span class="sk-tag">Flutter</span>
-        <span class="sk-tag">Dart</span>
-        <span class="sk-tag">Android</span>
-        <span class="sk-tag">iOS</span>
-      </div>
-    </div>
-    <div class="sk">
-      <div class="sk-n"></div>
-      <div class="sk-title">Tools</div>
-      <div class="sk-tags">
-        <span class="sk-tag">VS Code</span>
-        <span class="sk-tag">Git / GitHub</span>
-        <span class="sk-tag">Stitch AI</span>
-        <span class="sk-tag">Windows</span>
-      </div>
-    </div>
-    <div class="sk">
-      <div class="sk-n"></div>
-      <div class="sk-title">Soft Skills</div>
-      <div class="sk-tags">
-        <span class="sk-tag">Communication</span>
-        <span class="sk-tag">Leadership</span>
-        <span class="sk-tag">Problem Solving</span>
-        <span class="sk-tag">Critical Thinking</span>
-      </div>
-    </div>
+    <div class="sk"><div class="sk-n"></div><div class="sk-title">Frontend</div><div class="sk-tags"><span class="sk-tag">HTML5</span><span class="sk-tag">CSS3</span><span class="sk-tag">JavaScript</span><span class="sk-tag">React.js</span></div></div>
+    <div class="sk"><div class="sk-n"></div><div class="sk-title">UI/UX Design</div><div class="sk-tags"><span class="sk-tag">Figma</span><span class="sk-tag">Canva</span><span class="sk-tag">Prototyping</span><span class="sk-tag">Design Systems</span></div></div>
+    <div class="sk"><div class="sk-n"></div><div class="sk-title">Data Science</div><div class="sk-tags"><span class="sk-tag">Python</span><span class="sk-tag">Pandas</span><span class="sk-tag">Data Viz</span><span class="sk-tag">ML Models</span></div></div>
+    <div class="sk"><div class="sk-n"></div><div class="sk-title">Mobile Dev</div><div class="sk-tags"><span class="sk-tag">Flutter</span><span class="sk-tag">Dart</span><span class="sk-tag">Android</span><span class="sk-tag">iOS</span></div></div>
+    <div class="sk"><div class="sk-n"></div><div class="sk-title">Tools</div><div class="sk-tags"><span class="sk-tag">VS Code</span><span class="sk-tag">Git / GitHub</span><span class="sk-tag">Stitch AI</span><span class="sk-tag">Windows</span></div></div>
+    <div class="sk"><div class="sk-n"></div><div class="sk-title">Soft Skills</div><div class="sk-tags"><span class="sk-tag">Communication</span><span class="sk-tag">Leadership</span><span class="sk-tag">Problem Solving</span><span class="sk-tag">Critical Thinking</span></div></div>
   </div>
 </section>
 
@@ -869,7 +804,7 @@ footer{
     </div>
     <div class="c-item">
       <div class="c-icon">💼</div>
-      <div><div class="c-label">LinkedIn</div><div class="c-val"><a href="https://www.linkedin.com/in/jenitta-m-b6b969259" target="_blank">linkedin.com/in/jenitta-m-b6b969259</a></div></div>
+      <div><div class="c-label">LinkedIn</div><div class="c-val"><a href="https://www.linkedin.com/in/jenitta-m-b6b969259" target="_blank">linkedin.com/in/jenitta-m</a></div></div>
     </div>
     <div class="c-item">
       <div class="c-icon">🌐</div>
